@@ -1,0 +1,44 @@
+/* style.css */
+
+/* Estilo para o cabeçalho */
+header {
+    background-color: rgb(43, 12, 153) !important; /* Fundo preto */
+    color: white !important; /* Letras brancas */
+    position: fixed !important; /* Fixar no topo */
+    width: 100% !important; /* Largura total */
+    top: 0 !important; /* Posicionar no topo */
+    z-index: 1000 !important; /* Garantir que fique acima de outros elementos */
+    padding: 10px !important; /* Adicionar algum espaço interno */
+}
+
+body{
+    padding-top: 100px;
+    background-color: rgb(220, 255, 255);
+}
+
+/* Estilo para os links no cabeçalho */
+nav a {
+    color: #050505 !important; /* Letras brancas */
+    text-decoration: none !important; /* Remover sublinhado */
+    margin-right: 20px !important; /* Adicionar espaço entre os links */
+}
+
+nav a:hover{
+    color: #8a8a8a !important;
+    cursor: pointer;
+    transition: 1s;
+}
+
+/* Estilo para o logo */
+header h3 {
+    margin: 0 !important; /* Remover margem padrão */
+}
+
+/* Estilo para os itens de navegação quando em uma tela pequena */
+@media (max-width: 768px) {
+    nav {
+        text-align: center !important; /* Centralizar links */
+        margin-top: 10px !important; /* Adicionar algum espaço acima */
+    }
+}
+     
