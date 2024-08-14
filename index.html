@@ -12,7 +12,7 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            background-color: #f7f7f7;
+            background-color: #d9e1e6;
         }
 
         header {
@@ -23,8 +23,20 @@
         }
 
         main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centraliza verticalmente */
+            align-items: center; /* Centraliza horizontalmente */
             flex: 1;
             padding: 2rem;
+        }
+
+        .tabela-container {
+            max-width: 1200px; /* Ajuste a largura máxima conforme necessário */
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         table {
@@ -57,6 +69,7 @@
         td {
             font-size: 14px;
             color: #555;
+            vertical-align: top; /* Alinha o texto ao topo da célula */
         }
 
         footer {
@@ -86,7 +99,7 @@
         }
 
         .legenda {
-            margin-top: 1rem;
+            margin-top: 2rem; /* Adiciona espaço acima das legendas */
             font-size: 14px;
             color: #555;
         }
@@ -119,27 +132,28 @@
         <h1>Horário de Aulas - 1º ano Turno Matutino</h1>
     </header>
     <main>
-        <table>
-            <thead>
-                <tr>
-                    <th>Horário</th>
-                    <th>Segunda-feira</th>
-                    <th>Terça-feira</th>
-                    <th>Quarta-feira</th>
-                    <th>Quinta-feira</th>
-                    <th>Sexta-feira</th>
-                </tr>
-            </thead>
-            <tbody id="tabela-horario">
-                <!-- A tabela será preenchida pelo JavaScript -->
-            </tbody>
-        </table>
-
-        <!-- Legendas abaixo da tabela -->
-        <div class="legenda">
-            <div class="legenda-especial">Aulas Especiais</div>
-            <div class="legenda-prova">Provas</div>
-            <div class="legenda-normal">Aulas Normais</div>
+        <div class="tabela-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Horário</th>
+                        <th>Segunda-feira</th>
+                        <th>Terça-feira</th>
+                        <th>Quarta-feira</th>
+                        <th>Quinta-feira</th>
+                        <th>Sexta-feira</th>
+                    </tr>
+                </thead>
+                <tbody id="tabela-horario">
+                    <!-- A tabela será preenchida pelo JavaScript -->
+                </tbody>
+            </table>
+            <!-- Seção de legendas abaixo da tabela -->
+            <div class="legenda">
+                <div class="legenda-especial">Atividades Especiais</div>
+                <div class="legenda-prova">Provas</div>
+                <div class="legenda-normal">Aulas Normais</div>
+            </div>
         </div>
     </main>
     <footer>
@@ -149,51 +163,51 @@
         const horarioAulas = [
             {
                 horario: "07:00 - 07:45",
-                segunda: { disciplina: "MAT", professor: "Henrique", sala: "Sala 1" },
-                terca: { disciplina: "FIS", professor: "João", sala: "Sala 2" },
-                quarta: { disciplina: "ING", professor: "Natalina", sala: "Sala 3" },
-                quinta: { disciplina: "LING DIG - PROG", professor: "Maria/João", sala: "Sala 4", especial: true },
-                sexta: { disciplina: "GEO", professor: "Matheus", sala: "Sala 5" }
+                segunda: { disciplina: "MATEMÁTICA", professor: "Henrique", sala: "Sala 1" },
+                terca: { disciplina: "FÍSICA", professor: "João", sala: "Sala 2" },
+                quarta: { disciplina: "INGLÊS", professor: "Natalina", sala: "Sala 3" },
+                quinta: { disciplina: "ARTES", professor: "Maria/João", sala: "Sala 4", especial: true },
+                sexta: { disciplina: "GEOGRAFIA", professor: "Matheus", sala: "Sala 5" }
             },
             {
                 horario: "07:45 - 08:30",
-                segunda: { disciplina: "PORT", professor: "Maria", sala: "Sala 1" },
-                terca: { disciplina: "BIO", professor: "Diego", sala: "Sala 2" },
-                quarta: { disciplina: "ING", professor: "Natalina", sala: "Sala 3" },
-                quinta: { disciplina: "LING DIG - PROG", professor: "Maria/João", sala: "Sala 4", prova: true },
-                sexta: { disciplina: "FILOS", professor: "Rafael", sala: "Sala 6" }
+                segunda: { disciplina: "PORTUGUÊS", professor: "Maria", sala: "Sala 1" },
+                terca: { disciplina: "BIOLOGIA", professor: "Diego", sala: "Sala 2" },
+                quarta: { disciplina: "INGLÊS", professor: "Natalina", sala: "Sala 3" },
+                quinta: { disciplina: "HISTÓRIA", professor: "Maria/João", sala: "Sala 4", prova: true },
+                sexta: { disciplina: "FILOSOFIA", professor: "Rafael", sala: "Sala 6" }
             },
             {
                 horario: "08:30 - 09:15",
-                segunda: { disciplina: "FIS", professor: "João", sala: "Sala 2" },
-                terca: { disciplina: "SOCIO", professor: "Karina", sala: "Sala 3" },
-                quarta: { disciplina: "PRO VID", professor: "Fátima", sala: "Sala 4" },
-                quinta: { disciplina: "GEO", professor: "Matheus", sala: "Sala 5" },
-                sexta: { disciplina: "QUIM", professor: "Pedro", sala: "Sala 7" }
+                segunda: { disciplina: "FÍSICA", professor: "João", sala: "Sala 2" },
+                terca: { disciplina: "SOCIOLOGIA", professor: "Karina", sala: "Sala 3" },
+                quarta: { disciplina: "PROJETO DE VIDA", professor: "Fátima", sala: "Sala 4" },
+                quinta: { disciplina: "GEOGRAFIA", professor: "Matheus", sala: "Sala 5" },
+                sexta: { disciplina: "QUÍMICA", professor: "Pedro", sala: "Sala 7" }
             },
             {
                 horario: "09:30 - 10:15",
-                segunda: { disciplina: "LING ESTR - ROB", professor: "Naty/Henrique", sala: "Sala 1" },
-                terca: { disciplina: "PORT", professor: "Maria", sala: "Sala 2" },
-                quarta: { disciplina: "PRO VID", professor: "Fátima", sala: "Sala 4" },
-                quinta: { disciplina: "BIO", professor: "Diego", sala: "Sala 2" },
-                sexta: { disciplina: "TEC", professor: "Neuza", sala: "Sala 3" }
+                segunda: { disciplina: "INGLÊS", professor: "Naty/Henrique", sala: "Sala 1" },
+                terca: { disciplina: "PORTUGUÊS", professor: "Maria", sala: "Sala 2" },
+                quarta: { disciplina: "PROJETO DE VIDA", professor: "Fátima", sala: "Sala 4" },
+                quinta: { disciplina: "BIOLOGIA", professor: "Diego", sala: "Sala 2" },
+                sexta: { disciplina: "TECNOLOGIA", professor: "Neuza", sala: "Sala 3" }
             },
             {
                 horario: "10:15 - 11:00",
-                segunda: { disciplina: "HIST", professor: "Isabela", sala: "Sala 3" },
-                terca: { disciplina: "PORT", professor: "Maria", sala: "Sala 1" },
-                quarta: { disciplina: "MAT", professor: "Henrique", sala: "Sala 1" },
-                quinta: { disciplina: "MAT", professor: "Henrique", sala: "Sala 1" },
-                sexta: { disciplina: "FILOS", professor: "Rafael", sala: "Sala 4" }
+                segunda: { disciplina: "HISTÓRIA", professor: "Isabela", sala: "Sala 3" },
+                terca: { disciplina: "PORTUGUÊS", professor: "Maria", sala: "Sala 1" },
+                quarta: { disciplina: "MATEMÁTICA", professor: "Henrique", sala: "Sala 1" },
+                quinta: { disciplina: "MATEMÁTICA", professor: "Henrique", sala: "Sala 1" },
+                sexta: { disciplina: "FILOSOFIA", professor: "Rafael", sala: "Sala 4" }
             },
             {
                 horario: "11:00 - 11:45",
-                segunda: { disciplina: "HIST", professor: "Isabela", sala: "Sala 3" },
-                terca: { disciplina: "LING ESTR - ROB", professor: "Naty/Henrique", sala: "Sala 1" },
-                quarta: { disciplina: "QUIM", professor: "Pedro", sala: "Sala 7" },
-                quinta: { disciplina: "MAT", professor: "Henrique", sala: "Sala 1" },
-                sexta: { disciplina: "SOCIO", professor: "Karina", sala: "Sala 3" }
+                segunda: { disciplina: "HISTÓRIA", professor: "Isabela", sala: "Sala 3" },
+                terca: { disciplina: "INGLÊS", professor: "Naty/Henrique", sala: "Sala 1" },
+                quarta: { disciplina: "QUÍMICA", professor: "Pedro", sala: "Sala 7" },
+                quinta: { disciplina: "MATEMÁTICA", professor: "Henrique", sala: "Sala 1" },
+                sexta: { disciplina: "SOCIOLOGIA", professor: "Karina", sala: "Sala 3" }
             }
         ];
 
@@ -210,8 +224,13 @@
                 ["segunda", "terca", "quarta", "quinta", "sexta"].forEach(dia => {
                     const celula = document.createElement("td");
                     const aulaDia = aula[dia];
-                    celula.textContent = `${aulaDia.disciplina} / ${aulaDia.professor}\n${aulaDia.sala}`;
                     
+                    celula.innerHTML = `
+                        <div><strong>${aulaDia.disciplina}</strong></div>
+                        <div>${aulaDia.sala}</div>
+                        <div>${aulaDia.professor}</div>
+                    `;
+
                     if (aulaDia.especial) {
                         celula.classList.add("especial");
                     } else if (aulaDia.prova) {
